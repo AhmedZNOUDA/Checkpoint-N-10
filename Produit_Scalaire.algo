@@ -1,0 +1,32 @@
+ALGORITHM produit_scalaire
+VAR
+    V1: ARRAY_OF FLOAT[2];
+    V2: ARRAY_OF FLOAT[2];
+    ps: FLOAT
+BEGIN
+    FUNCTION dot_product(T1: ARRAY_OF FLOAT[];, T2: ARRAY_OF FLOAT[]) : FLOAT
+    VAR
+        prd_scl: FLOAT;
+        i, j : INTEGER;
+    BEGIN
+    i:= 0; j:= 0;
+    WHILE(i < T1.length and j < T2.length) DO
+        prd_scl := prd_scl + (T1[i] * T2[j+1]) + (T1[i+1] * T2[j])
+        i:= i+1; j:=j+1;
+    END_WHILE
+        RETURN prd_scl ;
+    END
+
+
+    FOR i FROM 0 TO V1.length-1 DO
+       Read(V1[i]);
+   END_FOR
+
+   FOR j FROM 0 TO V2.length-1 DO
+       Read(V2[j]);
+   END_FOR
+
+   ps:= dot_product(V1, V2);
+
+   Write("Le produit scalaire de deux vecteur ", V1 "et" V2 "est: " ps);
+END
