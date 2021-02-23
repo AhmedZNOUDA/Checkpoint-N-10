@@ -25,8 +25,11 @@ BEGIN
    FOR j FROM 0 TO V2.length-1 DO
        Read(V2[j]);
    END_FOR
-
-   ps:= dot_product(V1, V2);
+   IF(V1.length <> V2.length) THEN
+     Write("Les deux vecteurs ne sont pas égaux");
+   ELSE
+     ps:= dot_product(V1, V2);
+   END_IF
 
    Write("Le produit scalaire de deux vecteur ", V1 "et" V2 "est: " ps);
 END
